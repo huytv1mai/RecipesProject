@@ -1,0 +1,80 @@
+﻿
+@{
+    ViewData["Title"] = "Competition";
+    Layout = "~/Areas/Client/Views/Shared/_LayoutIndex.cshtml";
+}
+
+<section class="ftco-section bg-light">
+    <div class="container">
+        <div class="row justify-content-center mb-5 pb-2">
+            <div class="col-md-8 text-center heading-section ftco-animate">
+                <span class="subheading">Cooking Competition</span>
+                <h2 class="mb-4">Your Registered Competitions</h2>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-8 ftco-animate">
+                <!-- Thêm danh sách cuộc thi nấu ăn mà người dùng đã đăng ký -->
+                <div class="card">
+                    <div class="card-header">
+                        Registered Competitions
+                    </div>
+                    <div class="card-body">
+                        <ul>
+                            <li>
+                                <div class="row align-items-center">
+                                    <div class="col-md-4">
+                                        <img src="path_to_image" alt="Competition Image" class="img-fluid">
+                                    </div>
+                                    <div class="col-md-8">
+                                        <h3>Competition Title</h3>
+                                        <p>Description of the competition</p>
+                                        <a href="#" class="btn btn-primary">View Details</a>
+                                    </div>
+                                </div>
+                            </li>
+                            <!-- Thêm các mục cuộc thi khác tương tự -->
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <!-- Tin tức bên cạnh -->
+                <div class="card">
+                    <div class="card-header">
+                        Latest News
+                    </div>
+                    <div class="card-body">
+                        <ul>
+                            <li>
+                                <div class="row align-items-center">
+                                    <div class="col-md-4">
+                                        <img src="path_to_image" alt="News Image" class="img-fluid">
+                                    </div>
+                                    <div class="col-md-8">
+                                        <h4>Winner of ACB Competition</h4>
+                                        <p>Congratulations to the winner of the latest ACB competition!</p>
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="row align-items-center">
+                                    <div class="col-md-4">
+                                        <img src="path_to_image" alt="News Image" class="img-fluid">
+                                    </div>
+                                    <div class="col-md-8">
+                                        <h4>Top Tips for Cooking</h4>
+                                        <p>Check out our latest tips for improving your cooking skills.</p>
+                                    </div>
+                                </div>
+                            </li>
+                            <!-- Thêm các mục tin tức khác tương tự -->
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+

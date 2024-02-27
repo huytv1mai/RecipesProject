@@ -1,0 +1,60 @@
+﻿
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Areas/Client/Views/Shared/_LayoutIndex.cshtml";
+}
+
+<section class="ftco-section bg-light">
+    <div class="container">
+        <div class="row justify-content-center mb-5 pb-2">
+            <div class="col-md-8 text-center heading-section ftco-animate">
+                <span class="subheading">Account Information</span>
+                <h2 class="mb-4">Your Profile</h2>
+            </div>
+        </div>
+        <div class="row justify-content-center">
+            <div class="col-md-8 ftco-animate">
+                <div class="card">
+                    <div class="card-body">
+                        <table class="table table-striped">
+                            <tbody>
+                                <tr>
+                                    <th scope="row">Username</th>
+                                    <td>JohnDoe</td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">Email</th>
+                                    <td>johndoe@example.com</td>
+                                    <td><button class="btn btn-secondary">Edit</button></td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">Full Name</th>
+                                    <td>John Doe</td>
+                                    <td><button class="btn btn-secondary">Edit</button></td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">Membership Level</th>
+                                    <td>Premium</td>
+                                    <td><button class="btn btn-secondary">Extension</button></td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">Subscription Expiry</th>
+                                    <td>January 1, 2025</td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <td colspan="3" class="text-right"><button class="btn btn-primary"><a asp-controller="User" asp-action="Change" style="color: white;">Change Password</a></button></td>
+                                </tr>
+
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+

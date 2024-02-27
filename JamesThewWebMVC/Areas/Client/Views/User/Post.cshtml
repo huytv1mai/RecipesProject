@@ -1,0 +1,30 @@
+﻿@{
+    ViewData["Title"] = "Post";
+    Layout = "~/Areas/Client/Views/Shared/_LayoutIndex.cshtml";
+}
+
+<form action="/Client/user/submit" method="post" enctype="multipart/form-data">
+    <div class="form-group">
+        <label for="ThreadTitle"><strong>CHIA SẼ CÔNG THỨC</strong></label>
+        <input type="text" placeholder="Thread title" id="ThreadTitle" name="ThreadTitle" class="form-control" required>
+    </div>
+    <div class="form-group">
+        <label for="Content">Nội dung:</label>
+        <textarea id="Content" name="Content" class="form-control" required></textarea>
+    </div>
+    <div class="form-group">
+        <label for="Attachment">Đính kèm tệp hoặc ảnh:</label>
+        <input type="file" id="Attachment" name="Attachment" class="form-control-file">
+    </div>
+    <div style="margin-bot: 5cm;" class="text-center">
+        <button type="submit" class="btn btn-primary">Đăng bài</button>
+    </div>
+</form>
+
+<style>
+    .form-group {
+        padding-left: 2cm;
+        padding-right: 2cm;
+        margin-bottom: 1cm; 
+    }
+</style>

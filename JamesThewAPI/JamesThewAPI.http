@@ -1,0 +1,6 @@
+@JamesThewAPI_HostAddress = http://localhost:5255
+
+GET {{JamesThewAPI_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

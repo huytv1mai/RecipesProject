@@ -43,20 +43,23 @@
                                     <td>tranthib@example.com</td>
                                     <td>Member</td>
                                     <td>Yearly</td>
-                                    <td>2024-12-31</td> <!-- Thêm dữ liệu cho cột Ngày hết hạn đăng ký -->
+                                    <td>2024-12-31</td> 
                                     <td>
-                                        <button class="btn btn-info btn-sm">Edit</button> <!-- Button Sửa -->
-                                        <button class="btn btn-danger btn-sm">Delete</button> <!-- Button Xóa -->
-                                        <button class="btn btn-primary btn-sm">Detail</button> <!-- Button Chi tiết -->
+                                        <a asp-controller="UsersManagement" asp-action="Edit" asp-route-id="@Model.Id" class="btn btn-primary">Edit</a>
+
+                                        <button class="btn btn-danger btn-sm">Delete</button> 
+                                        <button class="btn btn-primary btn-sm">Detail</button> 
                                     </td>
                                 </tr>
-                                <!-- Thêm các hàng dữ liệu khác tại đây -->
+                                
                             </tbody>
                         </table>
-                    </div>
-                    <button class="btn btn-success">Add New User</button> <!-- Button Thêm mới user -->
-                </div>
+                        
+
             </div>
+                    <div>
+                        <a asp-controller="UsersManagement" asp-action="Create" class="btn btn-success">Add New User</a>
+                    </div>
         </div>
     </div>
     </section>

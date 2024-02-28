@@ -32,6 +32,11 @@ namespace JamesThewWebMVC.Controllers
                     TempData["Info"] = "Client";
                     return RedirectToAction("Index", "Home", new { area = "Client" });
                 }
+                else if (model.UserName == "admin" && model.Password == "admin")
+                {
+                    TempData["Info"] = "Client";
+                    return RedirectToAction("Index", "HomeAdmin", new { area = "Admin" });
+                }
                 else
                 {
                     ModelState.AddModelError("", "Invalid username or password."); // Add model error if credentials are incorrect

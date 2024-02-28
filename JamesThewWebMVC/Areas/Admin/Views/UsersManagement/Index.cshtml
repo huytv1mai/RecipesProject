@@ -1,0 +1,64 @@
+﻿
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<section class="ftco-section">
+    <div class="container">
+        <div class="col-lg-12">
+            <div class="card">
+                <div class="card-body">
+                    <h4 class="card-title">Member List</h4>
+                    <div class="table-responsive">
+                        <table class="table table-bordered">
+                            <thead>
+                                <tr>
+                                    <th>#</th>
+                                    <th>Fullname</th>
+                                    <th>Email</th>
+                                    <th>Role</th>
+                                    <th>Subscription</th>
+                                    <th>Expiration Date</th> <!-- Thêm cột Ngày hết hạn đăng ký -->
+                                    <th>Action</th> <!-- Thêm cột Hành động -->
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>1</td>
+                                    <td>Nguyễn Văn A</td>
+                                    <td>nguyenvana@example.com</td>
+                                    <td>Member</td>
+                                    <td>Monthly</td>
+                                    <td>2024-03-31</td> <!-- Thêm dữ liệu cho cột Ngày hết hạn đăng ký -->
+                                    <td>
+                                        <button class="btn btn-info btn-sm">Edit</button> <!-- Button Sửa -->
+                                        <button class="btn btn-danger btn-sm">Delete</button> <!-- Button Xóa -->
+                                        <button class="btn btn-primary btn-sm">Detail</button> <!-- Button Chi tiết -->
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>2</td>
+                                    <td>Trần Thị B</td>
+                                    <td>tranthib@example.com</td>
+                                    <td>Member</td>
+                                    <td>Yearly</td>
+                                    <td>2024-12-31</td> <!-- Thêm dữ liệu cho cột Ngày hết hạn đăng ký -->
+                                    <td>
+                                        <button class="btn btn-info btn-sm">Edit</button> <!-- Button Sửa -->
+                                        <button class="btn btn-danger btn-sm">Delete</button> <!-- Button Xóa -->
+                                        <button class="btn btn-primary btn-sm">Detail</button> <!-- Button Chi tiết -->
+                                    </td>
+                                </tr>
+                                <!-- Thêm các hàng dữ liệu khác tại đây -->
+                            </tbody>
+                        </table>
+                    </div>
+                    <button class="btn btn-success">Add New User</button> <!-- Button Thêm mới user -->
+                </div>
+            </div>
+        </div>
+    </div>
+    </section>
+
+

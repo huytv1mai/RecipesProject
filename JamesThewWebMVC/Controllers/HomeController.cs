@@ -18,32 +18,32 @@ namespace JamesThewWebMVC.Controllers
             return View();
         }
 
-		public IActionResult Login()
-		{
-			return View();
-		}
-        [HttpPost]
-        public IActionResult Login(LoginModel model)
-        {
-            if (ModelState.IsValid) // Check if the model is valid
-            {
-                if (model.UserName == "client" && model.Password == "client")
-                {
-                    TempData["Info"] = "Client";
-                    return RedirectToAction("Index", "Home", new { area = "Client" });
-                }
-                else if (model.UserName == "admin" && model.Password == "admin")
-                {
-                    TempData["Info"] = "Client";
-                    return RedirectToAction("Index", "HomeAdmin", new { area = "Admin" });
-                }
-                else
-                {
-                    ModelState.AddModelError("", "Invalid username or password."); // Add model error if credentials are incorrect
-                }
-            }
-            return View(model);
-        }
+		//public IActionResult Login()
+		//{
+		//	return View();
+		//}
+  //      [HttpPost]
+  //      public IActionResult Login(LoginModel model)
+  //      {
+  //          if (ModelState.IsValid) // Check if the model is valid
+  //          {
+  //              if (model.UserName == "client" && model.Password == "client")
+  //              {
+  //                  TempData["Info"] = "Client";
+  //                  return RedirectToAction("Index", "Home", new { area = "Client" });
+  //              }
+  //              else if (model.UserName == "admin" && model.Password == "admin")
+  //              {
+  //                  TempData["Info"] = "Client";
+  //                  return RedirectToAction("Index", "HomeAdmin", new { area = "Admin" });
+  //              }
+  //              else
+  //              {
+  //                  ModelState.AddModelError("", "Invalid username or password."); // Add model error if credentials are incorrect
+  //              }
+  //          }
+  //          return View(model);
+  //      }
         public IActionResult About()
         {
             return View();

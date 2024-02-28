@@ -6,6 +6,17 @@ using Microsoft.AspNetCore.Http.Features;
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
+builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme).AddCookie(options =>
+{
+    options.ExpireTimeSpan = TimeSpan.FromMinutes(20);
+    options.SlidingExpiration = true;
+    options.AccessDeniedPath = "/Forbidden/";
+    options.LoginPath = "/Admin/Login/Index";
+    options.ReturnUrlParameter = "returnUrl";
+}).AddCookie("Admin", options =>
+{
+    options.LoginPath = new PathString("/Admin/Login/Index");
+});
 builder.Services.AddControllersWithViews();
 builder.Services.AddRazorPages();
 builder.Services.AddRazorPages()

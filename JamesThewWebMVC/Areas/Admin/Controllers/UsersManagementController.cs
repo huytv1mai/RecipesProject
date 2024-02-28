@@ -36,41 +36,41 @@ namespace JamesThewWebMVC.Areas.Admin.Controllers
             return View(model);
         }
 
-        //[HttpGet]
-        //[Route("edit/{id}")]
-        //public IActionResult Edit(int id)
-        //{
-       
-        //    var user = _userService.GetUserById(id);
-        //    if (user == null)
-        //    {
-        //        return NotFound();
-        //    }
-        //    return View(user);
-        //}
+        [HttpGet]
+        [Route("edit")]
+        public IActionResult Edit(int id)
+        {
 
-        //[HttpPost]
-        //[Route("edit/{id}")]
-        //public IActionResult Edit(int id, UserViewModel model)
-        //{
-        //    // Action để xử lý chỉnh sửa thông tin người dùng
-        //    if (ModelState.IsValid)
-        //    {
-        //        // Xử lý cập nhật thông tin người dùng vào cơ sở dữ liệu
-        //        return RedirectToAction("Index");
-        //    }
-        //    // Trả về view với model nếu có lỗi xảy ra
-        //    return View(model);
-        //}
+            //var user = _userRepository.GetUserById(id);
+            //if (user == null)
+            //{
+            //    return NotFound();
+            //}
+            return View();
+        }
 
-        //[HttpPost]
-        //[Route("delete/{id}")]
-        //public IActionResult Delete(int id)
-        //{
-        //    // Action để xử lý xóa người dùng
-        //    // Xử lý xóa người dùng từ cơ sở dữ liệu dựa trên id
-        //    _userService.DeleteUser(id);
-        //    return RedirectToAction("Index");
-        //}
+        [HttpPost]
+        [Route("edit")]
+        public IActionResult Edit(int id, UserViewModel model)
+        {
+            // Action để xử lý chỉnh sửa thông tin người dùng
+            if (ModelState.IsValid)
+            {
+                // Xử lý cập nhật thông tin người dùng vào cơ sở dữ liệu
+                return RedirectToAction("Index");
+            }
+            // Trả về view với model nếu có lỗi xảy ra
+            return View(model);
+        }
+
+        [HttpPost]
+        [Route("delete/{id}")]
+        public IActionResult Delete(int id)
+        {
+            // Action để xử lý xóa người dùng
+            // Xử lý xóa người dùng từ cơ sở dữ liệu dựa trên id
+            //_userRepository.DeleteUser(id);
+            return RedirectToAction("Index");
+        }
     }
 }

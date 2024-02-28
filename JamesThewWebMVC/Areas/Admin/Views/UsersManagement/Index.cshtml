@@ -1,4 +1,5 @@
-﻿
+﻿@using DataAccess.Models
+
 @{
     ViewData["Title"] = "Index";
     Layout = "~/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml";
@@ -32,9 +33,9 @@
                                     <td>Monthly</td>
                                     <td>2024-03-31</td> <!-- Thêm dữ liệu cho cột Ngày hết hạn đăng ký -->
                                     <td>
-                                        <button class="btn btn-info btn-sm">Edit</button> <!-- Button Sửa -->
-                                        <button class="btn btn-danger btn-sm">Delete</button> <!-- Button Xóa -->
-                                        <button class="btn btn-primary btn-sm">Detail</button> <!-- Button Chi tiết -->
+                                        <a asp-controller="UsersManagement" asp-action="Edit" class="btn btn-info btn-sm">Edit</a> @* asp-route-id="@userId" *@
+                                        <a asp-controller="UsersManagement" asp-action="Delete" class="btn btn-danger btn-sm">Delete</a>
+                                        <a asp-controller="UsersManagement" asp-action="Detail" class="btn btn-primary btn-sm">Detail</a>
                                     </td>
                                 </tr>
                                 <tr>
@@ -45,10 +46,9 @@
                                     <td>Yearly</td>
                                     <td>2024-12-31</td> 
                                     <td>
-                                        <a asp-controller="UsersManagement" asp-action="Edit" asp-route-id="@Model.Id" class="btn btn-primary">Edit</a>
-
-                                        <button class="btn btn-danger btn-sm">Delete</button> 
-                                        <button class="btn btn-primary btn-sm">Detail</button> 
+                                        <a asp-controller="UsersManagement" asp-action="Edit" class="btn btn-info btn-sm">Edit</a> @* asp-route-id="@userId" *@
+                                        <a asp-controller="UsersManagement" asp-action="Delete" class="btn btn-danger btn-sm">Delete</a>
+                                        <a asp-controller="UsersManagement" asp-action="Detail" class="btn btn-primary btn-sm">Detail</a>
                                     </td>
                                 </tr>
                                 

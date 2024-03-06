@@ -6,6 +6,7 @@ using System.Security.Claims;
 using DataAccess.Models;
 using DataAccess.Helpers;
 using Microsoft.EntityFrameworkCore;
+using System;
 
 namespace JamesThewWebMVC.Controllers
 {
@@ -49,8 +50,6 @@ namespace JamesThewWebMVC.Controllers
                 }
                 else
                 {
-                    ViewData["ErrorMessage"] = "Tên đăng nhập hoặc mật khẩu không chính xác.";
-
                     return View();
                 }
             }
@@ -63,6 +62,27 @@ namespace JamesThewWebMVC.Controllers
         {
             await HttpContext.SignOutAsync();
             return RedirectToAction("Index", "Home");
+        }
+        [HttpPost]
+        public IActionResult Register(LoginModel model)
+        {
+            if (ModelState.IsValid)
+            {
+                try
+                {
+                    var newUser = new User { UserName = model.UserName, Password = model.Password, RoleId = 2, SubscriptionTypeId = 3 };
+                    var newUserEmail = new UserDetail { Email = model.Email };
+                    _db.Users.Add(newUser);
+                    _db.UserDetails.Add(newUserEmail);
+                    _db.SaveChanges();
+                    return RedirectToAction("Index", "Home");
+                }
+                catch (Exception ex)
+                {
+                    return RedirectToAction("Index", "Login");
+                }
+            }
+            return RedirectToAction("Index", "Login");
         }
     }
 }

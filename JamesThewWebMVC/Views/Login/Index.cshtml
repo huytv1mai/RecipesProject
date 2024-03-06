@@ -7,7 +7,7 @@
 <section>
     <div class="container" id="container">
         <div class="form-container sign-up-container">
-            <form action="#">
+            <form asp-controller="Login" asp-action="Register" method="post">
                 <h1>Create Account</h1>
                 <div class="social-container">
                     <a href="#" class="social"><i class="fab fa-facebook-f"></i></a>
@@ -15,9 +15,12 @@
                     <a href="#" class="social"><i class="fab fa-linkedin-in"></i></a>
                 </div>
                 <span>or use your email for registration</span>
-                <input type="text" placeholder="Username" />
-                <input type="email" placeholder="Email" />
-                <input type="password" placeholder="Password" />
+                <input type="text" asp-for="UserName" placeholder="Username" />
+                <span asp-validation-for="UserName" class="alert-danger"></span>
+                <input type="password" asp-for="Password" placeholder="Password" />
+                <span asp-validation-for="Password" class="alert-danger"></span>
+                <input type="text" asp-for="Email" placeholder="Email" />
+                <span asp-validation-for="Email" class="alert-danger"></span>
                 <button>Sign Up</button>
             </form>
         </div>
@@ -31,9 +34,9 @@
                 </div>
                 <span>or use your account</span>
                 <input type="text" asp-for="UserName" placeholder="Username" />
-                <span asp-validation-for="UserName"></span> <!-- Display validation error if any -->
+                <span asp-validation-for="UserName" class="alert-danger"></span> <!-- Display validation error if any -->
                 <input type="password" asp-for="Password" placeholder="Password" />
-                <span asp-validation-for="Password"></span> <!-- Display validation error if any -->
+                <span asp-validation-for="Password" class="alert-danger"></span> <!-- Display validation error if any -->
                 <a href="#">Forgot your password?</a>
                 <button type="submit">Sign In</button>
                 <span asp-validation-summary="All"></span> <!-- Display summary of all validation errors if any -->

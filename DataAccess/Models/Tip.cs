@@ -11,7 +11,7 @@ public partial class Tip
 
     public string Content { get; set; } = null!;
 
-    public DateOnly DatePosted { get; set; }
+    public DateTime DatePosted { get; set; }
 
     public int UseId { get; set; }
 

@@ -13,7 +13,7 @@ public partial class UserDetail
 
     public bool Sex { get; set; }
 
-    public DateOnly BirthOfDate { get; set; }
+    public DateTime BirthOfDate { get; set; }
 
     public string Email { get; set; } = null!;
 

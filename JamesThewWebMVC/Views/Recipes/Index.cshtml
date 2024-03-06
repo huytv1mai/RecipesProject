@@ -1,0 +1,46 @@
+﻿@{
+    ViewData["Title"] = "Index";
+}
+@model IEnumerable<DataAccess.Models.Recipe>
+
+<section class="ftco-section">
+    <div class="container">
+        <div class="row justify-content-center mb-5 pb-2">
+            <div class="col-md-7 text-center heading-section ftco-animate">
+                <span class="subheading">Specialties</span>
+                <h2 class="mb-4">Our Recipes</h2>
+            </div>
+        </div>
+        <div class="row">
+            @{
+                foreach (var item in Model)
+                {
+                    <div class="col-md-6 col-lg-4">
+                        <div class="menu-wrap">
+                            <div class="menus d-flex ftco-animate">
+                                <div class="menu-img img">
+                                    @if (item.Images.Count() > 0 && item.Images.FirstOrDefault() != null)
+                                    {
+                                        <img class="img-fluid" src="@item.Images.FirstOrDefault().ImageName" />
+                                    }
+
+                                </div>
+                                <div class="text">
+                                    <div class="d-flex">
+                                        <div class="one-half">
+                                            <h3>@item.Title</h3>
+                                        </div>
+                                    </div>
+                                    <p><span>@item.Details</span></p>
+                                </div>
+                            </div>
+                            <span class="flat flaticon-bread" style="left: 0;"></span>
+                            <span class="flat flaticon-breakfast" style="right: 0;"></span>
+                        </div>
+                    </div>
+                }
+            }
+        </div>
+    </div>
+</section>
+

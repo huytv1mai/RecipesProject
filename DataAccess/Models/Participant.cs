@@ -15,7 +15,7 @@ public partial class Participant
 
     public string SubmissionContent { get; set; } = null!;
 
-    public DateOnly SubmissionDate { get; set; }
+    public DateTime SubmissionDate { get; set; }
 
     public virtual Contest Contest { get; set; } = null!;
 

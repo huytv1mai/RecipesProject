@@ -40,8 +40,8 @@ public partial class JamesThewDbContext : DbContext
     public virtual DbSet<UserDetail> UserDetails { get; set; }
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-#warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see https://go.microsoft.com/fwlink/?LinkId=723263.
-        => optionsBuilder.UseSqlServer("Data Source=DESKTOP-LR3TTFE\\HUYTV;Database=JamesThewDB;\nUser Id=testuser;Password=abc123!@#;TrustServerCertificate=true;Trusted_Connection=SSPI;Encrypt=false;");
+#warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see http://go.microsoft.com/fwlink/?LinkId=723263.
+        => optionsBuilder.UseSqlServer("Data Source=DESKTOP-HRS2GUA;Database=JamesThewDb;TrustServerCertificate=true;Trusted_Connection=SSPI;Encrypt=false;");
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
@@ -51,6 +51,7 @@ public partial class JamesThewDbContext : DbContext
 
             entity.Property(e => e.AnnounmentId).HasColumnName("AnnounmentID");
             entity.Property(e => e.Content).HasColumnType("ntext");
+            entity.Property(e => e.DatePosted).HasColumnType("date");
             entity.Property(e => e.Title).HasMaxLength(50);
             entity.Property(e => e.UserId).HasColumnName("UserID");
 
@@ -67,6 +68,8 @@ public partial class JamesThewDbContext : DbContext
             entity.Property(e => e.ContestId).HasColumnName("ContestID");
             entity.Property(e => e.ContestName).HasMaxLength(200);
             entity.Property(e => e.Description).HasColumnType("ntext");
+            entity.Property(e => e.EndDate).HasColumnType("date");
+            entity.Property(e => e.StartDate).HasColumnType("date");
         });
 
         modelBuilder.Entity<Faq>(entity =>
@@ -128,6 +131,7 @@ public partial class JamesThewDbContext : DbContext
             entity.Property(e => e.ParticipantId).HasColumnName("ParticipantID");
             entity.Property(e => e.ContestId).HasColumnName("ContestID");
             entity.Property(e => e.SubmissionContent).HasColumnType("ntext");
+            entity.Property(e => e.SubmissionDate).HasColumnType("date");
             entity.Property(e => e.UserId).HasColumnName("UserID");
 
             entity.HasOne(d => d.Contest).WithMany(p => p.Participants)
@@ -179,6 +183,7 @@ public partial class JamesThewDbContext : DbContext
 
             entity.Property(e => e.TipId).HasColumnName("TipID");
             entity.Property(e => e.Content).HasColumnType("ntext");
+            entity.Property(e => e.DatePosted).HasColumnType("date");
             entity.Property(e => e.Title).HasMaxLength(50);
             entity.Property(e => e.UseId).HasColumnName("UseID");
 
@@ -223,6 +228,7 @@ public partial class JamesThewDbContext : DbContext
                 .ValueGeneratedOnAdd()
                 .HasColumnName("UserID");
             entity.Property(e => e.Address).HasMaxLength(200);
+            entity.Property(e => e.BirthOfDate).HasColumnType("date");
             entity.Property(e => e.Email)
                 .HasMaxLength(50)
                 .IsUnicode(false);

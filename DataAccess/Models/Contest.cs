@@ -11,9 +11,9 @@ public partial class Contest
 
     public string Description { get; set; } = null!;
 
-    public DateOnly StartDate { get; set; }
+    public DateTime StartDate { get; set; }
 
-    public DateOnly EndDate { get; set; }
+    public DateTime EndDate { get; set; }
 
     public virtual ICollection<Participant> Participants { get; set; } = new List<Participant>();
 }

@@ -1,7 +1,6 @@
-﻿
-@{
+﻿@{
     ViewData["Title"] = "Index";
-    
+
 }
 
 <section class="ftco-section bg-light">
@@ -19,34 +18,33 @@
                         <table class="table table-striped">
                             <tbody>
                                 <tr>
-                                    <th scope="row">Username</th>
-                                    <td>JohnDoe</td>
+                                    <th scope="row">FristName</th>
+                                    <td>@ViewBag.FristName</td>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">LastName</th>
+                                    <td>@ViewBag.LastName</td>
                                     <td></td>
                                 </tr>
                                 <tr>
                                     <th scope="row">Email</th>
-                                    <td>johndoe@example.com</td>
-                                    <td><button class="btn btn-secondary">Edit</button></td>
+                                    <td>@ViewBag.Email</td>
+                                    <td></td>
                                 </tr>
                                 <tr>
-                                    <th scope="row">Full Name</th>
-                                    <td>John Doe</td>
-                                    <td><button class="btn btn-secondary">Edit</button></td>
-                                </tr>
-                                <tr>
-                                    <th scope="row">Membership Level</th>
-                                    <td>Premium</td>
-                                    <td><button class="btn btn-secondary">Extension</button></td>
+                                    <th scope="row">Address</th>
+                                    <td>@ViewBag.Address</td>
+                                    <td></td>
                                 </tr>
                                 <tr>
                                     <th scope="row">Subscription Expiry</th>
-                                    <td>January 1, 2025</td>
+                                    <td>@ViewBag.SubscriptionExpiry</td>
                                     <td></td>
                                 </tr>
                                 <tr>
                                     <td colspan="3" class="text-right"><button class="btn btn-primary"><a asp-controller="User" asp-action="Change" style="color: white;">Change Password</a></button></td>
                                 </tr>
-
                             </tbody>
                         </table>
                     </div>

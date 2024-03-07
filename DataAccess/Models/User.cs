@@ -14,6 +14,7 @@ public partial class User
     public int RoleId { get; set; }
 
     public int SubscriptionTypeId { get; set; }
+    public DateTime? SubscriptionExpiry { get; set; }
 
     public virtual ICollection<Announment> Announments { get; set; } = new List<Announment>();
 

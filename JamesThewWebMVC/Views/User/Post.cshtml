@@ -2,9 +2,8 @@
     ViewData["Title"] = "Post";
     
 }
-
-
-<form action="/Client/user/submit" method="post" enctype="multipart/form-data">
+<form action="/User/post" method="post" enctype="multipart/form-data">
+    @Html.AntiForgeryToken()
     <div class="form-group">
         <label for="ThreadTitle"><strong>CHIA SẼ CÔNG THỨC</strong></label>
         <input type="text" placeholder="Thread title" id="ThreadTitle" name="ThreadTitle" class="form-control" required>

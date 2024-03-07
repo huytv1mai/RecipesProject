@@ -1,0 +1,42 @@
+﻿@model DataAccess.Models.Recipe
+
+@{
+    ViewData["Title"] = "Recipe Detail";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<section class="ftco-section bg-light">
+    <div class="container">
+        <div class="row justify-content-center mb-5 pb-2">
+            <div class="col-md-8 text-center heading-section ftco-animate">
+                <span class="subheading">Cooking Recipe</span>
+                <h2 class="mb-4">@Model.Title</h2>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12 ftco-animate">
+                <div class="card">
+                    <div class="card-header">
+                        Recipe Detail
+                    </div>
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-md-4">
+                                <img src="path_to_image" alt="Recipe Image" class="img-fluid">
+                            </div>
+                            <div class="col-md-8">
+                                <h3>@Model.Title</h3>
+                                <p>@Model.Details</p>
+                                <p><strong>Ingredients:</strong></p>
+                                <p>@Model.Ingredients</p>
+                                <p><strong>Date Posted:</strong> @(Model.DatePosted?.ToShortDateString() ?? "Unknown")</p>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+

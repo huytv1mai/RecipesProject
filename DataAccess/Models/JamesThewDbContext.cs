@@ -9,7 +9,6 @@ public partial class JamesThewDbContext : DbContext
     public JamesThewDbContext()
     {
     }
-
     public JamesThewDbContext(DbContextOptions<JamesThewDbContext> options)
         : base(options)
     {

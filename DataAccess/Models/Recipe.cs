@@ -7,19 +7,19 @@ public partial class Recipe
 {
     public int RecipeId { get; set; }
 
-    public string Title { get; set; } = null!;
+    public string? Title { get; set; }
 
-    public string Details { get; set; } = null!;
+    public string? Details { get; set; }
 
-    public string Ingredients { get; set; } = null!;
+    public string? Ingredients { get; set; }
 
-    public DateTime DatePosted { get; set; }
+    public DateTime? DatePosted { get; set; }
 
-    public bool Status { get; set; }
+    public bool? Status { get; set; }
 
-    public string Type { get; set; } = null!;
+    public string? Type { get; set; }
 
-    public int ContestId { get; set; }
+    public int? ContestId { get; set; }
 
     public virtual ICollection<Feedback> Feedbacks { get; set; } = new List<Feedback>();
 

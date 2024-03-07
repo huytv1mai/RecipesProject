@@ -12,6 +12,6 @@ namespace JamesThewWebMVC.Models
         [DataType(DataType.Password)]
         public string Password { get; set; }
         [Required(ErrorMessage = "Username required")]
-        public string? Email { get; set; }
+        public string? Email { get; set; } = null!;
     }
 }

@@ -57,7 +57,6 @@ public partial class JamesThewDbContext : DbContext
 
             entity.HasOne(d => d.User).WithMany(p => p.Announments)
                 .HasForeignKey(d => d.UserId)
-                .OnDelete(DeleteBehavior.ClientSetNull)
                 .HasConstraintName("FK_Announment_User");
         });
 
@@ -83,7 +82,6 @@ public partial class JamesThewDbContext : DbContext
 
             entity.HasOne(d => d.User).WithMany(p => p.Faqs)
                 .HasForeignKey(d => d.UserId)
-                .OnDelete(DeleteBehavior.ClientSetNull)
                 .HasConstraintName("FK_FAQ_User");
         });
 
@@ -98,12 +96,10 @@ public partial class JamesThewDbContext : DbContext
 
             entity.HasOne(d => d.Recipe).WithMany(p => p.Feedbacks)
                 .HasForeignKey(d => d.RecipeId)
-                .OnDelete(DeleteBehavior.ClientSetNull)
                 .HasConstraintName("FK_Feedback_Recipe");
 
             entity.HasOne(d => d.User).WithMany(p => p.Feedbacks)
                 .HasForeignKey(d => d.UserId)
-                .OnDelete(DeleteBehavior.ClientSetNull)
                 .HasConstraintName("FK_Feedback_User");
         });
 
@@ -120,7 +116,6 @@ public partial class JamesThewDbContext : DbContext
 
             entity.HasOne(d => d.Recipe).WithMany(p => p.Images)
                 .HasForeignKey(d => d.RecipeId)
-                .OnDelete(DeleteBehavior.ClientSetNull)
                 .HasConstraintName("FK_Image_Recipe");
         });
 
@@ -136,12 +131,10 @@ public partial class JamesThewDbContext : DbContext
 
             entity.HasOne(d => d.Contest).WithMany(p => p.Participants)
                 .HasForeignKey(d => d.ContestId)
-                .OnDelete(DeleteBehavior.ClientSetNull)
                 .HasConstraintName("FK_Participant_Contest");
 
             entity.HasOne(d => d.User).WithMany(p => p.Participants)
                 .HasForeignKey(d => d.UserId)
-                .OnDelete(DeleteBehavior.ClientSetNull)
                 .HasConstraintName("FK_Participant_User");
         });
 
@@ -189,7 +182,6 @@ public partial class JamesThewDbContext : DbContext
 
             entity.HasOne(d => d.Use).WithMany(p => p.Tips)
                 .HasForeignKey(d => d.UseId)
-                .OnDelete(DeleteBehavior.ClientSetNull)
                 .HasConstraintName("FK_Tip_User");
         });
 

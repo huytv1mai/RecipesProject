@@ -21,7 +21,7 @@ namespace JamesThewWebMVC
                     options.LoginPath = "/Login/Index";
                     options.AccessDeniedPath = "/Login/Index";
                     options.Cookie.HttpOnly = true;
-                    options.ExpireTimeSpan = TimeSpan.FromMinutes(60);  
+                    options.ExpireTimeSpan = TimeSpan.FromMinutes(60);
                     options.SlidingExpiration = true;
                 })
                 .AddGoogle(googleOptions =>
@@ -46,9 +46,18 @@ namespace JamesThewWebMVC
 
             app.UseAuthorization();
 
+            //app.MapControllerRoute(
+            //    name: "areas",
+            //    pattern: "{area:exists}/{controller=Home}/{action=Index}/{id?}");
+            app.MapAreaControllerRoute(
+                name: "Admin",
+                areaName: "Admin",
+                pattern: "Admin/{controller=Home}/{action=Index}/{id?}"
+                );
             app.MapControllerRoute(
                 name: "default",
                 pattern: "{controller=Home}/{action=Index}/{id?}");
+
 
             app.Run();
         }

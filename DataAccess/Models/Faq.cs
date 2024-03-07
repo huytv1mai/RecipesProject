@@ -7,11 +7,11 @@ public partial class Faq
 {
     public int Faqid { get; set; }
 
-    public string Question { get; set; } = null!;
+    public string? Question { get; set; }
 
-    public string Answer { get; set; } = null!;
+    public string? Answer { get; set; }
 
-    public int UserId { get; set; }
+    public int? UserId { get; set; }
 
-    public virtual User User { get; set; } = null!;
+    public virtual User? User { get; set; }
 }

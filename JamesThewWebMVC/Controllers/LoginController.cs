@@ -25,7 +25,7 @@ namespace JamesThewWebMVC.Controllers
         public async Task<IActionResult> Index(LoginModel model)
         {
             // pass 123abc#!
-            if (ModelState.IsValid)
+            if (model != null)
             {
                 var hashedPassword = md5.ComputeMD5Hash(model.Password);
                 var user = await _db.Users.FirstOrDefaultAsync(x => x.UserName.Contains(model.UserName) && x.Password.Contains(hashedPassword));
@@ -36,8 +36,8 @@ namespace JamesThewWebMVC.Controllers
                     var claims = new List<Claim>
                     {
                         new Claim(ClaimTypes.Email, userDetail.Email),
-                        new Claim(ClaimTypes.Name, userDetail.FristName),
-                        new Claim(ClaimTypes.GivenName, userDetail.LastName),
+                        //new Claim(ClaimTypes.Name, userDetail.FristName),
+                        //new Claim(ClaimTypes.GivenName, userDetail.LastName),
                         new Claim(ClaimTypes.Role, role.RoleName)
                     };
 
@@ -46,6 +46,10 @@ namespace JamesThewWebMVC.Controllers
 
                     await HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme, principal);
 
+                    if (role.RoleName == "Admin")
+                    {
+                        return RedirectToAction("Index", "Home", new { area = "Admin" });
+                    }
                     return RedirectToAction("Index", "Home");
                 }
                 else
@@ -70,7 +74,7 @@ namespace JamesThewWebMVC.Controllers
             {
                 try
                 {
-                    var newUser = new User { UserName = model.UserName, Password = model.Password, RoleId = 2, SubscriptionTypeId = 3 };
+                    var newUser = new User { UserName = model.UserName, Password = md5.ComputeMD5Hash(model.Password), RoleId = 2, SubscriptionTypeId = 3 };
                     var newUserEmail = new UserDetail { Email = model.Email };
                     _db.Users.Add(newUser);
                     _db.UserDetails.Add(newUserEmail);

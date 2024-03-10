@@ -75,7 +75,8 @@ namespace JamesThewWebMVC.Controllers
                     var email = User.FindFirst(ClaimTypes.Email)?.Value;
                     var _userId = await _db.UserDetails.FirstAsync(x => x.Email.Contains(email));
                     var user = await _db.Users.FirstAsync(x => x.UserId == _userId.UserId);
-                    if ((Convert.ToInt64(model.vnp_Amount) / 23000) == 100)
+                    var checkPrice = Convert.ToInt32(model.vnp_Amount) - 23000*100*100;
+                    if (checkPrice == 0)
                     {
                         user.SubscriptionExpiry = Convert.ToDateTime(user.SubscriptionExpiry).AddYears(1);
                     }

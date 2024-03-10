@@ -72,19 +72,19 @@ namespace JamesThewWebMVC.Controllers
             {
                 if (model.vnp_ResponseCode == "00" && model.vnp_TransactionStatus == "00")
                 {
-                    //var email = User.FindFirst(ClaimTypes.Email)?.Value;
-                    //var _userId = await _db.UserDetails.FirstAsync(x => x.Email.Contains(email));
-                    //var user = await _db.Users.FirstAsync(x => x.UserId == _userId.UserId);
-                    //if ((Convert.ToInt64(model.vnp_Amount)/23000) == 100)
-                    //{
-                    //    user.SubscriptionExpiry = Convert.ToDateTime(user.SubscriptionExpiry).AddYears(1);
-                    //}
-                    //else
-                    //{
-                    //    user.SubscriptionExpiry = Convert.ToDateTime(user.SubscriptionExpiry).AddDays(30);
-                    //}
-                    //_db.Users.Update(user);
-                    //await _db.SaveChangesAsync();
+                    var email = User.FindFirst(ClaimTypes.Email)?.Value;
+                    var _userId = await _db.UserDetails.FirstAsync(x => x.Email.Contains(email));
+                    var user = await _db.Users.FirstAsync(x => x.UserId == _userId.UserId);
+                    if ((Convert.ToInt64(model.vnp_Amount) / 23000) == 100)
+                    {
+                        user.SubscriptionExpiry = Convert.ToDateTime(user.SubscriptionExpiry).AddYears(1);
+                    }
+                    else
+                    {
+                        user.SubscriptionExpiry = Convert.ToDateTime(user.SubscriptionExpiry).AddDays(30);
+                    }
+                    _db.Users.Update(user);
+                    await _db.SaveChangesAsync();
                     // tôi muốn update trường SubscriptionExpiry
                     ViewBag.ResponseCode = "00";
                     return View(model);

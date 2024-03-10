@@ -9,11 +9,12 @@ using System.Security.Claims;
 
 namespace JamesThewWebMVC.Controllers
 {
+    [Authorize]
     public class UserController : Controller
     {
         private JamesThewDbContext _db;
         private readonly IWebHostEnvironment _webHostEnvironment;
-        public UserController(JamesThewDbContext db , IWebHostEnvironment webHostEnvironment)
+        public UserController(JamesThewDbContext db, IWebHostEnvironment webHostEnvironment)
         {
             _db = db;
             _webHostEnvironment = webHostEnvironment;
@@ -22,6 +23,8 @@ namespace JamesThewWebMVC.Controllers
         {
             if (User.Identity.IsAuthenticated)
             {
+                ViewBag.Month = _db.Subscriptions.First(x => x.SubscriptionTypeId == 1).Price.ToString("0.##");
+                ViewBag.Year = _db.Subscriptions.First(x => x.SubscriptionTypeId == 2).Price.ToString("0.##");
                 var email = User.FindFirst(ClaimTypes.Email)?.Value;
                 var yourProfile = _db.UserDetails.Where(x => x.Email.Contains(email));
                 ViewBag.Email = email;
@@ -37,6 +40,7 @@ namespace JamesThewWebMVC.Controllers
                 return View();
             }
         }
+        
         public IActionResult Competition()
         {
             return View();

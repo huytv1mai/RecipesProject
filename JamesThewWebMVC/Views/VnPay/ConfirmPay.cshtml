@@ -1,0 +1,50 @@
+﻿@{
+    ViewData["Title"] = "ConfirmPay";
+}
+@model ConfirmPayViewModel
+
+@{
+    if (ViewBag.ResponseCode == "00")
+    {
+        <div class="container">
+            <h1>
+                Thank you for purchasing the product
+            </h1>
+            <h2>Billing Information:</h2>
+            <hr />
+            <ul>
+                <li style="color:black">
+
+                    Payment code:
+                    <b> @Model.vnp_TxnRef</b>
+                </li>
+                <li style="color:black">
+                    Payment amount:
+                    <b> @(Convert.ToInt32(Model.vnp_Amount)/2300000) $</b>
+                </li>
+                <li style="color:black">
+                    Bank:
+                    <b>@Model.vnp_BankCode</b>
+                </li>
+                <li style="color:black">
+                    Card:
+                    <b>@Model.vnp_CardType</b>
+                </li>
+
+            </ul>
+            <hr />
+            <div class="d-flex justify-content-end">
+                <a class="site-btn" asp-controller="Home" asp-action="Index">Go Home</a>
+            </div>
+        </div>
+    }
+    else
+    {
+        <div class="container">
+            <p>
+                An error has occurred:
+            </p>
+            <span>@ViewBag.ResponseCode</span>
+        </div>
+    }
+}

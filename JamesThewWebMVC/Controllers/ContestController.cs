@@ -19,15 +19,19 @@ namespace JamesThewWebMVC.Controllers
             {
                 var email = User.FindFirst(ClaimTypes.Email)?.Value;
                 var _userId = _db.UserDetails.First(x => x.Email.Contains(email)).UserId;
+                //listContest = _db.Contests
+                //               .Join(
+                //                   _db.Participants.Where(p => p.UserId != _userId),
+                //                   ct => ct.ContestId,
+                //                   p => p.ContestId,
+                //                   (ct, p) => new { ct, p }
+                //               )
+                //               .Where(x => x.ct.StartDate <= DateTime.Now && x.ct.EndDate >= DateTime.Now && !_db.Participants.Any(p => p.ContestId == ct.ContestId && p.UserId == _userId))
+                //               .Select(x => x.ct).ToList();
                 listContest = _db.Contests
-                               .Join(
-                                   _db.Participants.Where(p => p.UserId != _userId),
-                                   ct => ct.ContestId,
-                                   p => p.ContestId,
-                                   (ct, p) => new { ct, p }
-                               )
-                               .Where(x => x.ct.StartDate <= DateTime.Now && x.ct.EndDate >= DateTime.Now)
-                               .Select(x => x.ct).ToList();
+            .Where(ct => ct.StartDate <= DateTime.Now && ct.EndDate >= DateTime.Now && !_db.Participants.Any(p => p.ContestId == ct.ContestId && p.UserId == _userId))
+            .ToList();
+                //var checkContest = _db.Participants.Where(x => x.UserId == _userId);
 
             }
             return View(listContest);

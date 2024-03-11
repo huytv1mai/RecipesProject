@@ -75,14 +75,28 @@ namespace JamesThewWebMVC.Controllers
                     var email = User.FindFirst(ClaimTypes.Email)?.Value;
                     var _userId = await _db.UserDetails.FirstAsync(x => x.Email.Contains(email));
                     var user = await _db.Users.FirstAsync(x => x.UserId == _userId.UserId);
-                    var checkPrice = Convert.ToInt32(model.vnp_Amount) - 23000*100*100;
+                    var checkPrice = Convert.ToInt32(model.vnp_Amount) - 23000 * 100 * 100;
                     if (checkPrice == 0)
                     {
-                        user.SubscriptionExpiry = Convert.ToDateTime(user.SubscriptionExpiry).AddYears(1);
+                        if (user.SubscriptionExpiry != null || user.SubscriptionExpiry >= DateTime.Now)
+                        {
+                            user.SubscriptionExpiry = DateTime.Now.AddYears(1);
+                        }
+                        else
+                        {
+                            user.SubscriptionExpiry = Convert.ToDateTime(user.SubscriptionExpiry).AddYears(1);
+                        }
                     }
                     else
                     {
-                        user.SubscriptionExpiry = Convert.ToDateTime(user.SubscriptionExpiry).AddDays(30);
+                        if (user.SubscriptionExpiry == null || user.SubscriptionExpiry <= DateTime.Now)
+                        {
+                            user.SubscriptionExpiry = DateTime.Now.AddMonths(1);
+                        }
+                        else
+                        {
+                            user.SubscriptionExpiry = Convert.ToDateTime(user.SubscriptionExpiry).AddYears(1);
+                        }
                     }
                     _db.Users.Update(user);
                     await _db.SaveChangesAsync();

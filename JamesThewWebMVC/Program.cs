@@ -12,6 +12,7 @@ namespace JamesThewWebMVC
             // Add services to the container.
             builder.Services.AddControllersWithViews();
             builder.Services.AddScoped(typeof(JamesThewDbContext));
+            
             builder.Services.AddAuthentication(options =>
             {
                 options.DefaultScheme = CookieAuthenticationDefaults.AuthenticationScheme;

@@ -57,11 +57,13 @@
                         // Cập nhật giao diện người dùng tại đây nếu cần thiết
                         window.location.href = '';
                     } else {
-                        alert('Failed to join contest.');
+                        alert('Please login!');
+                        window.location.href = '/login';
                     }
                 },
                 error: function (xhr, status, error) {
-                    alert('Error occurred while joining contest.');
+                    alert('Please login!');
+                    window.location.href = '/login';
                 }
             });
         }

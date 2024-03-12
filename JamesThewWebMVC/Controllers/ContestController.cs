@@ -40,21 +40,27 @@ namespace JamesThewWebMVC.Controllers
         [HttpPost]
         public IActionResult ParticipantContest(int contestId)
         {
-            try
+            if (User.Identity.IsAuthenticated)
             {
-                var email = User.FindFirst(ClaimTypes.Email)?.Value;
-                var _userId = _db.UserDetails.First(x => x.Email.Contains(email)).UserId;
-                var _participant = new Participant { UserId = _userId, ContestId = contestId };
-                _db.Participants.Add(_participant);
-                _db.SaveChanges();
-                return Json(new { success = true });
+                try
+                {
+                    var email = User.FindFirst(ClaimTypes.Email)?.Value;
+                    var _userId = _db.UserDetails.First(x => x.Email.Contains(email)).UserId;
+                    var _participant = new Participant { UserId = _userId, ContestId = contestId };
+                    _db.Participants.Add(_participant);
+                    _db.SaveChanges();
+                    return Json(new { success = true });
+                }
+                catch (Exception ex)
+                {
+                    // Xử lý lỗi ở đây nếu cần thiết
+                    return Json(new { success = false });
+                }
             }
-            catch (Exception ex)
+            else
             {
-                // Xử lý lỗi ở đây nếu cần thiết
                 return Json(new { success = false });
             }
         }
-
     }
 }

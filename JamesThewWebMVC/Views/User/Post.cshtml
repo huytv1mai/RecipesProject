@@ -2,15 +2,16 @@
     ViewData["Title"] = "Post";
     
 }
-<form action="/User/post" method="post" enctype="multipart/form-data">
+@model RecipeModel
+<form asp-controller="User" asp-action="Post" method="post" enctype="multipart/form-data">
     @Html.AntiForgeryToken()
     <div class="form-group">
         <label for="ThreadTitle"><strong>CHIA SẼ CÔNG THỨC</strong></label>
-        <input type="text" placeholder="Thread title" id="ThreadTitle" name="ThreadTitle" class="form-control" required>
+        <input type="text" placeholder="Thread title" id="ThreadTitle" asp-for="@Model.Title" class="form-control" required>
     </div>
     <div class="form-group">
         <label for="Content">Nội dung:</label>
-        <textarea id="Content" name="Content" class="form-control"></textarea>
+        <textarea id="Content" asp-for="@Model.Ingredients" class="form-control"></textarea>
     </div>
 
     <div style="margin-bot: 5cm;" class="text-center">
